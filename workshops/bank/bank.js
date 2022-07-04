@@ -37,8 +37,7 @@ const calculateBalance = (data) => {
       return null;
     }
     const average = sum / data.length;
-    let round_avg = Math.round((average + Number.EPSILON) * 100) / 100;
-    round_avg = round_avg.toFixed(2);
+    round_avg = average.toFixed(2);
     if (isNaN(round_avg)) {
       return null;
     } else {
