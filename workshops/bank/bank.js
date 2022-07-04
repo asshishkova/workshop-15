@@ -21,13 +21,29 @@
 // 2.If an exception occurs, simply return null
 // 3.To test the function's result, see file index.js
 const calculateBalance = (data) => {
-    // TODO: implement me!
-    // TODO: implement me!
-    // TODO: implement me!
-    // TODO: implement me!
-
-    return "0.00";
-    // TODO: return null if an error occurs
+    if (!data) {
+      return null;
+    }
+    if (data.length === 0) {
+      return "0.00";
+    }
+    let sum = 0;
+    try {
+      data.forEach(element => {
+        const balance = parseFloat(element.balance);
+        sum += balance;
+      });
+    } catch (error) {
+      return null;
+    }
+    const average = sum / data.length;
+    let round_avg = Math.round((average + Number.EPSILON) * 100) / 100;
+    round_avg = round_avg.toFixed(2);
+    if (isNaN(round_avg)) {
+      return null;
+    } else {
+      return round_avg.toString();
+    }
 }
 
 module.exports = {
