@@ -2,6 +2,7 @@ import { getDialMessage } from "./apartments-service";
 
 const LEVIN_APT_NUM = 3;
 const RUBIN_APT_NUM = 8;
+const IVAN_APT_NUM = 5;
 const NON_EXISTING_APT_NUM = 1234;
 
 test('Return the right dial message [Levin family] when 3 is dialed', () => {
@@ -17,8 +18,6 @@ test('Calling an apartment that does not exist', () => {
 });
 
 test('Calling an apartment without tenant lastname', () => {
-    // TODO: implement the test here
-    // TODO: implement the test here
-    // TODO: implement the test here
-    // TODO: implement the test here
+  expect(getDialMessage(IVAN_APT_NUM)).toBe("Calling Ivan")
+
 });

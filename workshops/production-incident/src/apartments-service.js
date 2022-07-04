@@ -12,7 +12,11 @@ const APARTMENTS = {
 export const getDialMessage = apartmentNumber => {
     const apartment = APARTMENTS[apartmentNumber];
     if (!apartment) return "Invalid apartment number";
-    return `Calling ${apartment.tenantFirstName} ${apartment.tenantLastName}`
+    let message =  `Calling ${apartment.tenantFirstName}`
+    if (apartment.tenantLastName) {
+      message = `${message} ${apartment.tenantLastName}`
+    }
+    return message;
 }
 
 export const dialApartment = apartmentNumber => {
